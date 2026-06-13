@@ -15,7 +15,7 @@ interface DashboardProps {
 
 export default function Dashboard({ initialServiceId, onClose }: DashboardProps) {
   // Navigation & Category states
-  const [selectedCatId, setSelectedCatId] = React.useState<string>("education");
+  const [selectedCatId, setSelectedCatId] = React.useState<string>("educational_services");
   const [selectedService, setSelectedService] = React.useState<Service | null>(null);
   
   // Form submission state
@@ -380,8 +380,123 @@ export default function Dashboard({ initialServiceId, onClose }: DashboardProps)
         )}
 
         {/* Dashboard Content split depending on Active Tab */}
+        {dashboardTab === "apply" && (
+          <div className="mb-8 mt-6 animate-fadeIn">
+            {/* Visual Welcome Banner */}
+            <div className="bg-gradient-to-r from-gray-905 to-slate-800 rounded-3xl p-6 md:p-8 text-white shadow-xl relative overflow-hidden">
+              {/* Background ambient pattern */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[#00C853]/15 via-transparent to-transparent opacity-80 pointer-events-none"></div>
+              
+              <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#00C853]/20 text-[#00C853] rounded-full text-xs font-bold border border-[#00C853]/25 mb-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#00C853] animate-pulse"></span>
+                    Student & Customer Hub Active
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight">
+                    Welcome Back, Student / Client! 👋
+                  </h3>
+                  <p className="text-xs text-gray-350 mt-1.5 max-w-xl leading-relaxed">
+                    Access automated portals for school applications, O'Level result uploads on CAPS, transcripts, civil registers, government forms, business CAC, and instant checker PINs.
+                  </p>
+                </div>
+                
+                {/* Stats board */}
+                <div className="grid grid-cols-2 gap-4 w-full md:w-auto shrink-0">
+                  <div className="bg-white/5 border border-white/10 backdrop-blur-md p-4 rounded-2xl min-w-[130px]">
+                    <div className="text-[10px] uppercase font-mono font-bold tracking-widest text-gray-400">Total Orders</div>
+                    <div className="text-2xl font-extrabold text-white mt-1">{orders.length}</div>
+                    <div className="text-[10px] text-emerald-400 mt-0.5 font-bold">⏱ Real-time tracking</div>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 backdrop-blur-md p-4 rounded-2xl min-w-[130px]">
+                    <div className="text-[10px] uppercase font-mono font-bold tracking-widest text-gray-400">Completed Tasks</div>
+                    <div className="text-2xl font-extrabold text-[#00C853] mt-1">
+                      {orders.filter(o => o.status === "Completed").length}
+                    </div>
+                    <div className="text-[10px] text-gray-300 mt-0.5">Secure Processing</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* QUICK SECTIONS (Requested Category Dashboard Buttons) */}
+            <div className="mt-8">
+              <h4 className="text-xs font-extrabold font-mono text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-[#00C853]"></span>
+                Services Quick Purchase Sections
+              </h4>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" id="quick-sections-widget">
+                {CATEGORIES.map((cat) => {
+                  const count = SERVICES.filter(s => s.category === cat.id).length;
+                  const isActive = selectedCatId === cat.id;
+                  
+                  // Map specific background glow or icon highlights
+                  let iconBg = "bg-emerald-500/10 text-[#00C853]";
+                  if (cat.id === "educational_services") iconBg = "bg-blue-500/10 text-blue-500";
+                  if (cat.id === "verification_service") iconBg = "bg-purple-500/10 text-purple-600";
+                  if (cat.id === "documentation_service") iconBg = "bg-amber-500/10 text-amber-600";
+                  if (cat.id === "registration_services") iconBg = "bg-teal-500/10 text-teal-600";
+                  if (cat.id === "modification_services") iconBg = "bg-pink-500/10 text-pink-600";
+                  if (cat.id === "exam_pin_services") iconBg = "bg-indigo-500/10 text-indigo-600";
+
+                  return (
+                    <button
+                      key={cat.id}
+                      onClick={() => {
+                        setSelectedCatId(cat.id);
+                        // Auto-select the first service in the selected category
+                        const matching = SERVICES.filter(s => s.category === cat.id);
+                        if (matching.length > 0) {
+                          setSelectedService(matching[0]);
+                          setFormData({});
+                          setUploadedFiles([]);
+                        }
+                        // Smooth scroll to selection zone
+                        const formSection = document.getElementById("selection-form-split-view");
+                        if (formSection) {
+                          formSection.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                      }}
+                      className={`p-4 rounded-2xl border text-left transition-all flex flex-col justify-between group cursor-pointer relative overflow-hidden min-h-[160px] ${
+                        isActive
+                          ? "bg-white border-[#00C853] shadow-md ring-2 ring-[#00C853]/15"
+                          : "bg-white border-gray-150 hover:bg-gray-50 hover:border-gray-300 hover:shadow-sm"
+                      }`}
+                      id={`quick-sec-${cat.id}`}
+                    >
+                      {/* Highlight border on active */}
+                      {isActive && (
+                        <div className="absolute top-0 left-0 right-0 h-1 bg-[#00C853]"></div>
+                      )}
+                      
+                      <div className="flex justify-between items-start w-full">
+                        <div className={`p-2.5 rounded-xl ${iconBg} group-hover:scale-110 transition-transform`}>
+                          <IconMapper name={cat.iconName} className="w-5 h-5 animate-pulse" />
+                        </div>
+                        <span className="text-[9px] font-mono text-gray-500 font-bold bg-gray-100 px-1.5 py-0.5 rounded leading-none">
+                          {count} services
+                        </span>
+                      </div>
+
+                      <div className="mt-4">
+                        <h5 className="text-xs font-extrabold text-gray-950 tracking-tight group-hover:text-[#00C853] transition-colors leading-tight">
+                          {cat.name}
+                        </h5>
+                        <p className="text-[10px] text-gray-500 line-clamp-2 mt-1 leading-normal font-medium">
+                          {cat.description}
+                        </p>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Dashboard Content split depending on Active Tab */}
         {dashboardTab === "apply" ? (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-6" id="selection-form-split-view">
             
             {/* Sidebar Column: Services Category & Options LIST (Cols 4) */}
             <div className="lg:col-span-4 flex flex-col gap-6" id="dashboard-sidebar-panels">

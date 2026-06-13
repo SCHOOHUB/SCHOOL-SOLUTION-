@@ -2,64 +2,40 @@ import { Service, Category } from "./types";
 
 export const CATEGORIES: Category[] = [
   {
-    id: "education",
-    name: "Education Services",
-    description: "JAMB, WAEC, PINs, Assignments, Project Consultation & Admission Assistance",
+    id: "educational_services",
+    name: "Educational Services",
+    description: "School applications, O'Level result uploads on Caps, admissions, transcripts & project consulting",
     iconName: "GraduationCap",
   },
   {
-    id: "identity",
-    name: "Identity & Government",
-    description: "NIN, NPC Birth Certificates, Court Affidavits, Police Reports, NYSC & Marriage Registration",
-    iconName: "UserCheck",
+    id: "verification_service",
+    name: "Verification Service",
+    description: "NPC birth attestation, transcript verification/valuation, and security clearance reports",
+    iconName: "ShieldCheck",
   },
   {
-    id: "business",
-    name: "Business & CAC Services",
-    description: "CAC Registration, TIN Registration, SCUML Licensing & Land Documentation",
-    iconName: "Briefcase",
-  },
-  {
-    id: "travel",
-    name: "Travel & Immigration",
-    description: "International Passport support, Visa applications, Profile creation, & Driver's License assist",
-    iconName: "Compass",
-  },
-  {
-    id: "printing",
-    name: "Printing & Documentation",
-    description: "High-quality Printing, Frame enlargement, Professional CV & Cover Letter writing",
+    id: "documentation_service",
+    name: "Documentation Service",
+    description: "Mass printing scan desks, ATS CV packages, cover letters, and legal court affidavits",
     iconName: "FileText",
   },
   {
-    id: "vehicle",
-    name: "Vehicle Services",
-    description: "New Vehicle Registration, Ownership Transfer, & License Plate renew / reissue",
-    iconName: "Car",
+    id: "registration_services",
+    name: "Registration Services",
+    description: "CAC business incorporation, TIN tax registration, SCUML licensing, driver's licenses, and passports",
+    iconName: "ClipboardCopy",
   },
   {
-    id: "utilities",
-    name: "Utility Services",
-    description: "Instant Airtime topup, Data bundles, Electricity tokens, & Cable TV recharge",
-    iconName: "Zap",
+    id: "modification_services",
+    name: "Modification Services",
+    description: "Correction of date of birth, name spelling updates, re-mobilization, and civil modification help",
+    iconName: "RefreshCw",
   },
   {
-    id: "employment",
-    name: "Employment Services",
-    description: "Job registrations, Profile polishing, Freelance portal setup & Career opportunities tracker",
-    iconName: "Search",
-  },
-  {
-    id: "property",
-    name: "Property Services",
-    description: "Vetted House/Shop rentals, verified Land listings & Property valuation supports",
-    iconName: "Home",
-  },
-  {
-    id: "gadgets",
-    name: "Gadgets & Accessories",
-    description: "Affordable and vetted premium Laptops, Phones, Charger packs and tech accessories",
-    iconName: "Laptop",
+    id: "exam_pin_services",
+    name: "Exam PIN Services",
+    description: "Buy WAEC result checker keys, NECO token keys, scratch cards, and airtime data bundles",
+    iconName: "Key",
   },
 ];
 
@@ -68,7 +44,7 @@ export const SERVICES: Service[] = [
   {
     id: "jamb-services",
     name: "JAMB Services",
-    category: "education",
+    category: "educational_services",
     priceEstimate: "₦6,700 - ₦8,500",
     duration: "1 - 2 Business Days",
     description: "Official JAMB registration, Profile code creation, UTME change of institution/course and result printing assistance.",
@@ -84,7 +60,7 @@ export const SERVICES: Service[] = [
   {
     id: "exam-pin",
     name: "Examination PIN Purchase",
-    category: "education",
+    category: "exam_pin_services",
     priceEstimate: "₦3,800 - ₦4,500",
     duration: "Instant (Within 5 Mins)",
     description: "Buy WAEC result checker PINs, NECO token keys, and NABTEB verification PINs delivered directly to your inbox.",
@@ -99,7 +75,7 @@ export const SERVICES: Service[] = [
   {
     id: "international-school",
     name: "International School Applications",
-    category: "education",
+    category: "educational_services",
     priceEstimate: "₦15,000 - ₦40,000",
     duration: "5 - 7 Business Days",
     description: "Full counseling, application fee settlement, SOP uploads and admission processing for schools in UK, US, Canada & Europe.",
@@ -115,7 +91,7 @@ export const SERVICES: Service[] = [
   {
     id: "educational-services-section",
     name: "Educational Services",
-    category: "education",
+    category: "educational_services",
     priceEstimate: "₦5,000 - ₦25,000",
     duration: "1 - 3 Business Days",
     description: "Comprehensive assistance with school applications, institution screening registrations, O'Level result uploads on CAPS, and change of course or institution on school portals.",
@@ -132,7 +108,7 @@ export const SERVICES: Service[] = [
   {
     id: "nin-services",
     name: "NIN Services",
-    category: "identity",
+    category: "modification_services",
     priceEstimate: "₦5,000 - ₦15,000",
     duration: "1 - 2 Business Days",
     description: "New National Identification Number (NIN) registration, modification of Date of Birth, Name corrections, and Premium NIN Slip printing.",
@@ -147,7 +123,7 @@ export const SERVICES: Service[] = [
   {
     id: "npc-birth-cert",
     name: "NPC Birth Certificate / Attestation",
-    category: "identity",
+    category: "verification_service",
     priceEstimate: "₦8,000 - ₦12,000",
     duration: "3 - 5 Business Days",
     description: "Official National Population Commission (NPC) birth certificate or certificate attestation processing for international use.",
@@ -162,7 +138,7 @@ export const SERVICES: Service[] = [
   {
     id: "court-affidavit",
     name: "Court Affidavit Processing",
-    category: "identity",
+    category: "documentation_service",
     priceEstimate: "₦3,500 - ₦6,000",
     duration: "24 Hours",
     description: "Legal Court Affidavit for Declaration of Age, Change of Name, Lost Items, Single Status, or Resident details.",
@@ -176,7 +152,7 @@ export const SERVICES: Service[] = [
   {
     id: "police-report",
     name: "Police Character / Loss Report",
-    category: "identity",
+    category: "verification_service",
     priceEstimate: "₦12,000 - ₦30,000",
     duration: "2 - 3 Business Days",
     description: "Official Police Character Clearance Certificate or Police Loss Report for lost ID, vehicle documents, and educational records.",
@@ -190,7 +166,7 @@ export const SERVICES: Service[] = [
   {
     id: "marriage-registration",
     name: "Marriage Registration Services",
-    category: "identity",
+    category: "registration_services",
     priceEstimate: "₦35,000 - ₦75,000",
     duration: "2 - 3 Weeks",
     description: "Assistance with federal marriage registry bookings, documentation submission, statutory wedding preparation, and securing certified marriage registration certificates.",
@@ -209,7 +185,7 @@ export const SERVICES: Service[] = [
   {
     id: "cac-business",
     name: "CAC Business Name Registration",
-    category: "business",
+    category: "registration_services",
     priceEstimate: "₦18,000 - ₦24,000",
     duration: "4 - 7 Business Days",
     description: "Registering business names with the Corporate Affairs Commission. Includes name search, filing, and certificate delivery.",
@@ -224,7 +200,7 @@ export const SERVICES: Service[] = [
   {
     id: "tin-registration",
     name: "TIN Registration (Tax ID)",
-    category: "business",
+    category: "registration_services",
     priceEstimate: "₦4,000 - ₦8,000",
     duration: "24 - 48 Hours",
     description: "Instant creation and activation of Joint Tax Board (JTB) or Federal Inland Revenue Service (FIRS) Tax Identification Number for individuals & entities.",
@@ -238,7 +214,7 @@ export const SERVICES: Service[] = [
   {
     id: "scuml-registration",
     name: "SCUML Registration & Licensing",
-    category: "business",
+    category: "registration_services",
     priceEstimate: "₦25,000 - ₦45,000",
     duration: "10 - 14 Business Days",
     description: "Special Anti-Money Laundering (SCUML) certification from the EFCC. Required constraint for luxury business bank accounts in Nigeria.",
@@ -254,7 +230,7 @@ export const SERVICES: Service[] = [
   {
     id: "intl-passport",
     name: "International Passport Processing",
-    category: "travel",
+    category: "registration_services",
     priceEstimate: "₦65,000 - ₦95,000",
     duration: "2 - 6 Weeks (Biometrics)",
     description: "Step-by-step facilitation for 32-Page/64-Page Standard Passport, renewals, correction of data, or fast-track booking.",
@@ -268,7 +244,7 @@ export const SERVICES: Service[] = [
   {
     id: "driver-licence",
     name: "Driver's Licence Processing",
-    category: "travel",
+    category: "registration_services",
     priceEstimate: "₦26,000 - ₦38,000",
     duration: "2 - 3 Weeks (Temp Slip in 48h)",
     description: "Facilitation of 3-Year or 5-Year official Driver's License registration, physical exam bypass, biometric booking, & renewal tracking.",
@@ -285,7 +261,7 @@ export const SERVICES: Service[] = [
   {
     id: "printing-services",
     name: "Mass Printing & Scanning Desk",
-    category: "printing",
+    category: "documentation_service",
     priceEstimate: "₦50 - ₦300 / Page",
     duration: "Same day dispatch",
     description: "High speed, premium printing, thesis binding, scan-to-PDF desk, laminated certificates, and direct parcel shipping.",
@@ -299,7 +275,7 @@ export const SERVICES: Service[] = [
   {
     id: "cv-writing",
     name: "CV & Cover Letter Writing",
-    category: "printing",
+    category: "documentation_service",
     priceEstimate: "₦4,000 - ₦10,000",
     duration: "24 - 48 Hours",
     description: "ATS-optimized Premium CV, Cover letter, and optimized LinkedIn setup written by global recruiting professionals.",
@@ -315,7 +291,7 @@ export const SERVICES: Service[] = [
   {
     id: "vehicle-reg",
     name: "Vehicle Registration & Renewal",
-    category: "vehicle",
+    category: "registration_services",
     priceEstimate: "₦45,000 - ₦65,000",
     duration: "3 - 5 Business Days",
     description: "Full vehicle registration, customized license plates, change of ownership, roadworthiness certificates, and auto insurance cards.",
@@ -332,7 +308,7 @@ export const SERVICES: Service[] = [
   {
     id: "airtime-data",
     name: "Airtime & Data Wholesale bundles",
-    category: "utilities",
+    category: "exam_pin_services",
     priceEstimate: "₦100 - ₦50,000",
     duration: "Instant (1 - 2 mins)",
     description: "Get discount bundles of MTN, Airtel, Glo and 9mobile VTU airtime, SME data plans, and electricity meter payments.",
@@ -347,7 +323,7 @@ export const SERVICES: Service[] = [
   {
     id: "job-opp",
     name: "Latest Job Opportunity Registration",
-    category: "employment",
+    category: "educational_services",
     priceEstimate: "₦2,000 - ₦5,000",
     duration: "24 Hours",
     description: "Account creation, profiles set up on LinkedIn, Indeed, Jobberman, and Upwork with automated job alert keywords set.",
@@ -363,7 +339,7 @@ export const SERVICES: Service[] = [
   {
     id: "house-rent",
     name: "Affordable Rent Listings Tracker",
-    category: "property",
+    category: "registration_services",
     priceEstimate: "₦250,000 - ₦1,500,000 / Yr",
     duration: "Weekly Matching alerts",
     description: "Browse verified listings of apartments, duplexes, shops, and office spaces with direct access to physical agents.",
@@ -379,7 +355,7 @@ export const SERVICES: Service[] = [
   {
     id: "gadgets-deal",
     name: "Premium Vetted Gadgets Purchase",
-    category: "gadgets",
+    category: "educational_services",
     priceEstimate: "Negotiated (Varies)",
     duration: "1 - 2 Days courier",
     description: "Buy grade-A refurbished or new HP, Dell, Lenovos, iPhones, Samsungs, and custom chargers directly tested by MYSOLUTION HUB Tech Center.",
