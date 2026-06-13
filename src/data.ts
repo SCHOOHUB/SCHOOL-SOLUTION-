@@ -3,366 +3,556 @@ import { Service, Category } from "./types";
 export const CATEGORIES: Category[] = [
   {
     id: "educational_services",
-    name: "Educational Services",
-    description: "School applications, O'Level result uploads on Caps, admissions, transcripts & project consulting",
-    iconName: "GraduationCap",
+    name: "Education Services",
+    description: "WAEC, NECO, NABTEB and JAMB Scratch Cards, Tokens and PINs.",
+    iconName: "Key",
   },
   {
-    id: "verification_service",
-    name: "Verification Service",
-    description: "NPC birth attestation, transcript verification/valuation, and security clearance reports",
+    id: "verification_services",
+    name: "Verification Services",
+    description: "NIN/BVN verification, retrievals, and official registry correction processes.",
     iconName: "ShieldCheck",
   },
   {
-    id: "documentation_service",
-    name: "Documentation Service",
-    description: "Mass printing scan desks, ATS CV packages, cover letters, and legal court affidavits",
-    iconName: "FileText",
+    id: "online_services",
+    name: "Online Services",
+    description: "CAC registration, NPC Birth attestation, TIN, driver license, and international passport processing.",
+    iconName: "Globe",
   },
   {
-    id: "registration_services",
-    name: "Registration Services",
-    description: "CAC business incorporation, TIN tax registration, SCUML licensing, driver's licenses, and passports",
-    iconName: "ClipboardCopy",
+    id: "jamb_services",
+    name: "JAMB Services",
+    description: "Original result printing, admission letters, ePIN tokens, and official course regularization/changes.",
+    iconName: "GraduationCap",
   },
   {
-    id: "modification_services",
-    name: "Modification Services",
-    description: "Correction of date of birth, name spelling updates, re-mobilization, and civil modification help",
-    iconName: "RefreshCw",
-  },
-  {
-    id: "exam_pin_services",
-    name: "Exam PIN Services",
-    description: "Buy WAEC result checker keys, NECO token keys, scratch cards, and airtime data bundles",
-    iconName: "Key",
+    id: "exam_registration_services",
+    name: "Exam Registration Services",
+    description: "WAEC, NECO, NABTEB, GCE, JUPEB and IJMB candidate enrollment forms.",
+    iconName: "BookOpen",
   },
 ];
 
 export const SERVICES: Service[] = [
-  // EDUCATION SERVICES
+  // 1. EDUCATION SERVICES (WAEC, NECO, NABTEB, JAMB PINs)
   {
-    id: "jamb-services",
-    name: "JAMB Services",
+    id: "waec-pin",
+    name: "WAEC PIN",
     category: "educational_services",
-    priceEstimate: "₦6,700 - ₦8,500",
-    duration: "1 - 2 Business Days",
-    description: "Official JAMB registration, Profile code creation, UTME change of institution/course and result printing assistance.",
-    formFields: [
-      { name: "fullName", label: "Candidate's Full Name", type: "text", required: true, placeholder: "As written on your O'Level" },
-      { name: "profileCode", label: "JAMB Profile Code (if generated)", type: "text", required: false, placeholder: "10-digit code" },
-      { name: "phoneNumber", label: "Phone Number linked to NIN", type: "text", required: true, placeholder: "08012345678" },
-      { name: "jambSpecs", label: "Choice of Course & Institution", type: "textarea", required: true, placeholder: "1st Choice, 2nd Choice & Course details" },
-      { name: "documentUpload", label: "O'Level Result / Birth Certificate", type: "file", required: true }
-    ]
-  },
-
-  {
-    id: "exam-pin",
-    name: "Examination PIN Purchase",
-    category: "exam_pin_services",
-    priceEstimate: "₦3,800 - ₦4,500",
+    priceEstimate: "₦4,000",
     duration: "Instant (Within 5 Mins)",
-    description: "Buy WAEC result checker PINs, NECO token keys, and NABTEB verification PINs delivered directly to your inbox.",
+    description: "Instant WAEC Result Checker PIN and Serial Number delivery to check O'Level results.",
     formFields: [
-      { name: "fullName", label: "Your Full Name", type: "text", required: true },
+      { name: "fullName", label: "Full Name", type: "text", required: true, placeholder: "e.g. Jane Audu" },
       { name: "emailAddress", label: "Email Address for Delivery", type: "text", required: true, placeholder: "you@example.com" },
-      { name: "pinType", label: "PIN Needed", type: "select", required: true, options: ["WAEC Scratch Card PIN", "NECO Checker Token", "NABTEB PIN", "JAMB Direct Entry PIN"] },
-      { name: "quantity", label: "Quantity", type: "number", required: true, placeholder: "1" }
+      { name: "phoneNumber", label: "Phone Number", type: "text", required: true, placeholder: "e.g. 08012345678" },
+      { name: "quantity", label: "Quantity Needed", type: "number", required: true, placeholder: "1" }
     ]
   },
-
   {
-    id: "international-school",
-    name: "International School Applications",
+    id: "neco-pin",
+    name: "NECO PIN",
     category: "educational_services",
-    priceEstimate: "₦15,000 - ₦40,000",
-    duration: "5 - 7 Business Days",
-    description: "Full counseling, application fee settlement, SOP uploads and admission processing for schools in UK, US, Canada & Europe.",
+    priceEstimate: "₦1,500",
+    duration: "Instant (Within 5 Mins)",
+    description: "NECO Result Token activation key to check NECO Internal and External exam marks.",
     formFields: [
-      { name: "fullName", label: "Applicant's Full Name", type: "text", required: true },
-      { name: "preferredCountry", label: "Target Country", type: "select", required: true, options: ["United Kingdom", "Canada", "United States", "Germany", "Australia", "Other"] },
-      { name: "course", label: "Proposed Course of Study", type: "text", required: true, placeholder: "e.g. MSc Data Science" },
-      { name: "documents", label: "Consolidated Academic Transcript", type: "file", required: true }
+      { name: "fullName", label: "Full Name", type: "text", required: true, placeholder: "e.g. Obi Nwosu" },
+      { name: "emailAddress", label: "Email Address for Delivery", type: "text", required: true, placeholder: "you@example.com" },
+      { name: "phoneNumber", label: "Phone Number", type: "text", required: true, placeholder: "e.g. 08012345678" },
+      { name: "quantity", label: "Quantity Needed", type: "number", required: true, placeholder: "1" }
     ]
   },
-
-
   {
-    id: "educational-services-section",
-    name: "Educational Services",
+    id: "nabteb-pin",
+    name: "NABTEB PIN",
     category: "educational_services",
-    priceEstimate: "₦5,000 - ₦25,000",
-    duration: "1 - 3 Business Days",
-    description: "Comprehensive assistance with school applications, institution screening registrations, O'Level result uploads on CAPS, and change of course or institution on school portals.",
+    priceEstimate: "₦4,000",
+    duration: "Instant (Within 5 Mins)",
+    description: "NABTEB exam Result Card scratch PIN and card serial for direct verification.",
     formFields: [
-      { name: "studentName", label: "Student Legal Full Name", type: "text", required: true, placeholder: "First Name, Middle Name, Last Name" },
-      { name: "phoneNumber", label: "Contact Phone Number", type: "text", required: true, placeholder: "e.g., 08012345678" },
-      { name: "educationalNeeds", label: "Specific Service Required", type: "select", required: true, options: ["O'Level Result Upload on JAMB CAPS", "Institutional Post-UTME Screening", "Change of Course / Institution Assist", "Transcript Processing & Verification", "School Admission Consulting"] },
-      { name: "details", label: "Institution & Course Details", type: "textarea", required: true, placeholder: "Describe the specific school, level, year, and course involved..." },
-      { name: "academicCredentials", label: "Academic Credentials (e.g. O'Level/UTME result/Admission letter in PDF)", type: "file", required: true }
+      { name: "fullName", label: "Full Name", type: "text", required: true, placeholder: "e.g. Adamu Haruna" },
+      { name: "emailAddress", label: "Email Address for Delivery", type: "text", required: true, placeholder: "you@example.com" },
+      { name: "phoneNumber", label: "Phone Number", type: "text", required: true, placeholder: "e.g. 08012345678" },
+      { name: "quantity", label: "Quantity Needed", type: "number", required: true, placeholder: "1" }
+    ]
+  },
+  {
+    id: "jamb-pin",
+    name: "JAMB PIN",
+    category: "educational_services",
+    priceEstimate: "₦6,700",
+    duration: "Instant (Within 5 Mins)",
+    description: "JAMB profile utility PIN to enable candidate registration and portal entries.",
+    formFields: [
+      { name: "fullName", label: "Full Name", type: "text", required: true, placeholder: "e.g. Sandra Otu" },
+      { name: "emailAddress", label: "Email Address for Delivery", type: "text", required: true, placeholder: "you@example.com" },
+      { name: "phoneNumber", label: "Phone Number connected to NIN", type: "text", required: true, placeholder: "e.g. 08012345678" },
+      { name: "quantity", label: "Quantity Needed", type: "number", required: true, placeholder: "1" }
     ]
   },
 
-  // IDENTITY SERVICES
+  // 2. VERIFICATION SERVICES
   {
-    id: "nin-services",
-    name: "NIN Services",
-    category: "modification_services",
-    priceEstimate: "₦5,000 - ₦15,000",
-    duration: "1 - 2 Business Days",
-    description: "New National Identification Number (NIN) registration, modification of Date of Birth, Name corrections, and Premium NIN Slip printing.",
+    id: "nin-verification",
+    name: "NIN Verification",
+    category: "verification_services",
+    priceEstimate: "₦2,000",
+    duration: "Same Day Dispatch",
+    description: "Perform premium, structural National Identification Number validation against database.",
     formFields: [
-      { name: "fullName", label: "Legal Full Name", type: "text", required: true, placeholder: "First Name, Middle Name, Last Name" },
-      { name: "ninAction", label: "NIN Modification Required", type: "select", required: true, options: ["Fresh Enrolment", "Date of Birth Modification", "Correction of Name Spelling", "Re-print Lost NIN Slip", "NIN Verification/Validation"] },
-      { name: "originalDob", label: "Date of Birth", type: "date", required: true },
-      { name: "fathersName", label: "Father's Full Name", type: "text", required: true },
-      { name: "currentSlip", label: "Present Document or Supporting Affidavit", type: "file", required: true }
+      { name: "ninNumber", label: "NIN Number (11 Digits)", type: "text", required: true, placeholder: "e.g. 12345678901" },
+      { name: "fullName", label: "Full Name on NIN Card", type: "text", required: true, placeholder: "As registered with NIMC" },
+      { name: "phoneNumber", label: "Linked Phone Number", type: "text", required: true, placeholder: "08011223344" },
+      { name: "ninSlip", label: "NIN Slip or Temporary Print", type: "file", required: true }
     ]
   },
   {
-    id: "npc-birth-cert",
-    name: "NPC Birth Certificate / Attestation",
-    category: "verification_service",
-    priceEstimate: "₦8,000 - ₦12,000",
-    duration: "3 - 5 Business Days",
-    description: "Official National Population Commission (NPC) birth certificate or certificate attestation processing for international use.",
+    id: "nin-retrieval",
+    name: "NIN Retrieval",
+    category: "verification_services",
+    priceEstimate: "₦3,000",
+    duration: "Same Day Dispatch",
+    description: "Retrieve your lost or misplaced NIN using biometric identifiers and registered mobile history.",
     formFields: [
-      { name: "childName", label: "Subject Name (The Child)", type: "text", required: true },
+      { name: "fullName", label: "Full Name", type: "text", required: true, placeholder: "First, Middle, Last Name" },
+      { name: "linkedPhone", label: "Registry Phone Number", type: "text", required: true, placeholder: "Phone registered at NIMC center" },
       { name: "dateOfBirth", label: "Date of Birth", type: "date", required: true },
-      { name: "placeOfBirth", label: "Place of Birth (Hospital & City)", type: "text", required: true },
-      { name: "parentsNames", label: "Parents' Names", type: "textarea", required: true, placeholder: "Father's Name & Mother's Name" },
-      { name: "birthReport", label: "Local Hospital Birth Card or Affidavit", type: "file", required: true }
+      { name: "fathersName", label: "Father's Full Name", type: "text", required: true, placeholder: "Father's legal name" }
+    ]
+  },
+  {
+    id: "bvn-retrieval",
+    name: "BVN Retrieval",
+    category: "verification_services",
+    priceEstimate: "₦4,000",
+    duration: "Same Day Dispatch",
+    description: "Retrieve Bank Verification Number (BVN) safely. Requires matching account and telephone signatures.",
+    formFields: [
+      { name: "fullName", label: "Full Name on Bank Account", type: "text", required: true, placeholder: "e.g. David Alao" },
+      { name: "bankName", label: "Registered Bank Name", type: "text", required: true, placeholder: "e.g. Access Bank" },
+      { name: "accountNo", label: "Bank Account Number", type: "text", required: true, placeholder: "10-digit number" },
+      { name: "dateOfBirth", label: "Date of Birth", type: "date", required: true },
+      { name: "linkedPhone", label: "BVN Linked Phone Number", type: "text", required: true, placeholder: "e.g. 08012345678" }
+    ]
+  },
+  {
+    id: "nin-dob-mod",
+    name: "NIN Date of Birth Modification",
+    category: "verification_services",
+    priceEstimate: "₦15,000",
+    duration: "1 - 2 Business Days",
+    description: "Official modification of the date of birth associated with your National Identification Number.",
+    formFields: [
+      { name: "ninNumber", label: "NIN Number", type: "text", required: true, placeholder: "11-digit NIN" },
+      { name: "correctDob", label: "Correct Date of Birth", type: "date", required: true },
+      { name: "wrongDob", label: "Current Wrong Date of Birth", type: "date", required: true },
+      { name: "courtAffidavit", label: "Court Affidavit for Age Declaration", type: "file", required: true },
+      { name: "birthCertificate", label: "NPC Birth Certificate or Attestation", type: "file", required: true }
+    ]
+  },
+  {
+    id: "nin-name-mod",
+    name: "NIN Change of Name",
+    category: "verification_services",
+    priceEstimate: "₦15,050",
+    duration: "1 - 2 Business Days",
+    description: "Official modification and correction of name spelling or full name adjustments on NIMC registry.",
+    formFields: [
+      { name: "ninNumber", label: "National Identification Number", type: "text", required: true },
+      { name: "newFullName", label: "New Proposed Legal Full Name", type: "text", required: true, placeholder: "e.g. Grace Emeka Okafor" },
+      { name: "oldFullName", label: "Old Registered Full Name", type: "text", required: true, placeholder: "e.g. Grace Emeka" },
+      { name: "newspaperCut", label: "Change of Name Newspaper Publication", type: "file", required: true },
+      { name: "courtDeed", label: "Deed Poll or Legal Court Certificate", type: "file", required: true }
+    ]
+  },
+  {
+    id: "nin-phone-mod",
+    name: "NIN Change of Phone Number",
+    category: "verification_services",
+    priceEstimate: "₦10,000",
+    duration: "1 - 2 Business Days",
+    description: "Modify the primary phone number linked to your National Identification Number for SMS tracking.",
+    formFields: [
+      { name: "ninNumber", label: "NIN Number", type: "text", required: true, placeholder: "11-digit NIN" },
+      { name: "newPhone", label: "New Phone Number to Link", type: "text", required: true, placeholder: "08012345678" },
+      { name: "reason", label: "Reason for Change", type: "textarea", required: true, placeholder: "e.g. Stolen sim card, lost registry lines" },
+      { name: "affidavit", label: "Police Report / Supporting Sworn Affidavit", type: "file", required: true }
+    ]
+  },
+
+  // 3. ONLINE SERVICES
+  {
+    id: "cac-reg",
+    name: "CAC Registration",
+    category: "online_services",
+    priceEstimate: "₦22,000",
+    duration: "4 - 7 Business Days",
+    description: "Complete business registration and incorporation with the Corporate Affairs Commission.",
+    formFields: [
+      { name: "proposedName", label: "Proposed Business Name (Preferred)", type: "text", required: true, placeholder: "e.g. Apex Tech Ventures" },
+      { name: "altName", label: "Alternative Proposed Business Name", type: "text", required: true, placeholder: "Alternative back-up option" },
+      { name: "businessType", label: "Business Type", type: "select", required: true, options: ["Sole Proprietorship", "Private Limited Company (LTD)", "Partnership", "NGO / Association"] },
+      { name: "proprietorName", label: "Full Name of Proprietor / Directors", type: "text", required: true },
+      { name: "phoneNumber", label: "Phone Number", type: "text", required: true },
+      { name: "emailAddress", label: "Email Address", type: "text", required: true, placeholder: "you@example.com" },
+      { name: "ownerId", label: "Owner NIN / International Passport Bio Page", type: "file", required: true }
+    ]
+  },
+  {
+    id: "npc-birth",
+    name: "NPC Birth Registration",
+    category: "online_services",
+    priceEstimate: "₦8,500",
+    duration: "3 - 5 Business Days",
+    description: "Secure an official National Population Commission (NPC) Birth Certificate or certified attestation.",
+    formFields: [
+      { name: "childName", label: "Child's Full Legal Name", type: "text", required: true },
+      { name: "dateOfBirth", label: "Date of Birth", type: "date", required: true },
+      { name: "placeOfBirth", label: "Place of Birth (Hospital, City, LGA)", type: "text", required: true },
+      { name: "parentsNames", label: "Parents' Full Names (Father & Mother)", type: "textarea", required: true, placeholder: "Father: Yusuf Ahmed, Mother: Fatima Ahmed" },
+      { name: "hospitalCard", label: "Local Hospital Birth Card or sworn affidavit", type: "file", required: true }
+    ]
+  },
+  {
+    id: "scuml-reg",
+    name: "SCUML Registration",
+    category: "online_services",
+    priceEstimate: "₦35,000",
+    duration: "10 - 14 Business Days",
+    description: "Special Control Unit Against Money Laundering (SCUML) certified registration for professional services.",
+    formFields: [
+      { name: "businessName", label: "CAC Certified Business Name", type: "text", required: true },
+      { name: "rcNumber", label: "BN / RC Registration Number", type: "text", required: true, placeholder: "e.g. RC-1122334" },
+      { name: "sectorCode", label: "Business Sector Code", type: "select", required: true, options: ["Real Estate / Property Development", "Hotels / Hospitality Management", "Non-Governmental Association", "Professional / Consultancy firm", "Luxury Vehicles Sale", "Bureaux de Change", "Casinos & Lottery"] },
+      { name: "cacDocs", label: "CAC Incorporation Documents Pack (ZIP / PDF)", type: "file", required: true }
+    ]
+  },
+  {
+    id: "tin-reg",
+    name: "TIN Registration",
+    category: "online_services",
+    priceEstimate: "₦5,000",
+    duration: "24 - 48 Hours",
+    description: "Instant creation and activation of individual or company Tax Identification Number.",
+    formFields: [
+      { name: "entityName", label: "Entity / Individual Name", type: "text", required: true, placeholder: "Name for tax assessment" },
+      { name: "tinClass", label: "TIN Classification", type: "select", required: true, options: ["Individual TIN (Self-Employed / Employee)", "Non-Limited Enterprise (BN) TIN", "Limited Liability (LTD) Corporate TIN"] },
+      { name: "ninNumber", label: "National Identification Number (NIN)", type: "text", required: true, placeholder: "11-digits" },
+      { name: "utilityBill", label: "Address Utility Bill (NEPA / Water)", type: "file", required: true }
+    ]
+  },
+  {
+    id: "nerd-reg",
+    name: "NERD Registration",
+    category: "online_services",
+    priceEstimate: "₦25,000",
+    duration: "3 - 5 Business Days",
+    description: "National Educational Research Database (NERD) platform profile establishment.",
+    formFields: [
+      { name: "entityName", label: "Institution / Entity Name", type: "text", required: true },
+      { name: "representativeName", label: "Authorized Representative Name", type: "text", required: true },
+      { name: "representativeNin", label: "Representative NIN Number", type: "text", required: true },
+      { name: "businessDocs", label: "Company Registry or Academic License (PDF)", type: "file", required: true }
+    ]
+  },
+  {
+    id: "marriage-reg",
+    name: "Marriage Registration",
+    category: "online_services",
+    priceEstimate: "₦50,000",
+    duration: "2 - 3 Weeks",
+    description: "Facilitate certified Federal Marriage Registry enrollment and legal wedding booking systems.",
+    formFields: [
+      { name: "partnerAName", label: "Partner A Legal Full Name", type: "text", required: true },
+      { name: "partnerBName", label: "Partner B Legal Full Name", type: "text", required: true },
+      { name: "registryLocation", label: "Preferred Registry Location", type: "text", required: true, placeholder: "e.g. Ikoyi Registry, Lagos" },
+      { name: "proposedDate", label: "Proposed Wedding Date", type: "date", required: true },
+      { name: "partnerAPassport", label: "Partner A Passport Photograph", type: "file", required: true },
+      { name: "partnerBPassport", label: "Partner B Passport Photograph", type: "file", required: true }
+    ]
+  },
+  {
+    id: "intl-passport",
+    name: "International Passport Processing",
+    category: "online_services",
+    priceEstimate: "₦85,000",
+    duration: "2 - 6 Weeks (Biometrics)",
+    description: "Standard Nigerian Immigration Service Passport booking, biometrics scheduling, and renewal routing.",
+    formFields: [
+      { name: "fullName", label: "Full Legal Name (as on papers)", type: "text", required: true },
+      { name: "appType", label: "Application Type", type: "select", required: true, options: ["Fresh Issue (5 Years, 32 Pages)", "Fresh Issue (10 Years, 64 Pages)", "Expired Renewal", "Lost / Damaged Replacement"] },
+      { name: "stateOfOrigin", label: "State of Origin & LGA", type: "text", required: true },
+      { name: "supportingDoc", label: "NIN Slip & Birth Certificate Scan (PDF/ZIP)", type: "file", required: true }
+    ]
+  },
+  {
+    id: "visa-app",
+    name: "Visa Application",
+    category: "online_services",
+    priceEstimate: "₦120,500",
+    duration: "3 - 5 Weeks",
+    description: "Comprehensive visa application profiling, booking slots, SOP writing, and consulate form completion.",
+    formFields: [
+      { name: "fullName", label: "Full Name", type: "text", required: true },
+      { name: "occupation", label: "Current Occupation / Job", type: "text", required: true },
+      { name: "destination", label: "Destination Country", type: "text", required: true, placeholder: "e.g. United Kingdom" },
+      { name: "visaType", label: "Visa Type", type: "select", required: true, options: ["Tourist / Visitor Visa", "Student MSc / PhD Visa", "Business / Professional Visa"] },
+      { name: "passportBio", label: "International Passport Bio Page Scan", type: "file", required: true },
+      { name: "bankStatement", label: "6 Months Official Bank Statement (PDF)", type: "file", required: true }
+    ]
+  },
+  {
+    id: "nysc-reg",
+    name: "NYSC Registration",
+    category: "online_services",
+    priceEstimate: "₦4,500",
+    duration: "1 - 3 Days",
+    description: "National Youth Service Corps portal upload, biometric synchronization booking support and green-card printout.",
+    formFields: [
+      { name: "callupNo", label: "Callup Number (if available)", type: "text", required: false, placeholder: "NYSC/NMU/2026/..." },
+      { name: "matricNo", label: "Institution Matric Number", type: "text", required: true },
+      { name: "schoolName", label: "School Attended", type: "text", required: true, placeholder: "University / Polytechnic Name" },
+      { name: "surname", label: "Surname", type: "text", required: true },
+      { name: "otherNames", label: "Other Names", type: "text", required: true },
+      { name: "passport", label: "Passport Photograph (White Background)", type: "file", required: true }
+    ]
+  },
+  {
+    id: "drivers-licence",
+    name: "Driver's Licence Processing",
+    category: "online_services",
+    priceEstimate: "₦28,000",
+    duration: "2 - 3 Weeks (Temp in 48 Hrs)",
+    description: "FRSC driver license booking service. Bypass queue systems and obtain physical temporary slips.",
+    formFields: [
+      { name: "fullName", label: "Driver Legal Full Name", type: "text", required: true },
+      { name: "dateOfBirth", label: "Date of Birth", type: "date", required: true },
+      { name: "licenseType", label: "License Category Type", type: "select", required: true, options: ["Private Car (Category B)", "Motorcycle (Category A)", "Heavy Truck (Category E)", "Commercial Bus (Category C)"] },
+      { name: "ninSlip", label: "NIN Slip or Expired FRSC Card", type: "file", required: true }
+    ]
+  },
+  {
+    id: "vehicle-reg",
+    name: "Vehicle Registration",
+    category: "online_services",
+    priceEstimate: "₦45,000",
+    duration: "3 - 5 Business Days",
+    description: "New vehicle registration, allocation of plate numbers, and third party automated insurances.",
+    formFields: [
+      { name: "ownerName", label: "Vehicle Owner Name", type: "text", required: true },
+      { name: "vehicleSpecs", label: "Vehicle details (Make, Model, Year, Chassis)", type: "textarea", required: true, placeholder: "e.g. Toyota Camry 2018, Red Color" },
+      { name: "plateClass", label: "Plate Class", type: "select", required: true, options: ["Standard Private Plate", "Commercial Transport Plate", "Customized Personalized Plate"] },
+      { name: "purchaseReceipt", label: "Customs Papers / Proof of Purchase Receipt", type: "file", required: true }
     ]
   },
   {
     id: "court-affidavit",
-    name: "Court Affidavit Processing",
-    category: "documentation_service",
-    priceEstimate: "₦3,500 - ₦6,000",
+    name: "Court Affidavit",
+    category: "online_services",
+    priceEstimate: "₦4,500",
     duration: "24 Hours",
-    description: "Legal Court Affidavit for Declaration of Age, Change of Name, Lost Items, Single Status, or Resident details.",
+    description: "Official legal sworn Court Affidavit declaration of age, change of name, or missing items.",
     formFields: [
       { name: "applicantName", label: "Applicant Name", type: "text", required: true },
-      { name: "affidavitType", label: "Type of Court Affidavit", type: "select", required: true, options: ["Deed of Name Change", "Declaration of Age", "Loss of Wallet/Details", "Proof of Nationality", "Consent Affidavit"] },
-      { name: "reasoning", label: "Affidavit Body text / Details", type: "textarea", required: true, placeholder: "Detail the names, ages, or dates to be corrected" },
+      { name: "affidavitType", label: "Type of Affidavit", type: "select", required: true, options: ["Deed of Name Correction", "Declaration of Legal Age", "Loss of Valuable Items", "Proof of Residence Single Status"] },
+      { name: "statement", label: "Details to include in sworn affidavit text", type: "textarea", required: true },
       { name: "idCard", label: "Valid ID Card (NIN / Voter Card)", type: "file", required: true }
     ]
   },
   {
     id: "police-report",
-    name: "Police Character / Loss Report",
-    category: "verification_service",
-    priceEstimate: "₦12,000 - ₦30,000",
-    duration: "2 - 3 Business Days",
-    description: "Official Police Character Clearance Certificate or Police Loss Report for lost ID, vehicle documents, and educational records.",
+    name: "Police Report",
+    category: "online_services",
+    priceEstimate: "₦15,000",
+    duration: "2 - 3 Days",
+    description: "Sworn Police Station extraction report regarding lost items, car papers, or missing records.",
     formFields: [
       { name: "fullName", label: "Full Name", type: "text", required: true },
-      { name: "policeType", label: "Type of Report", type: "select", required: true, options: ["Loss of Document Report", "Police Character Certificate", "Assault Report Diary Extract"] },
-      { name: "lostDetails", label: "Brief statement / explanation", type: "textarea", required: true, placeholder: "Describe how, when and where the incident occurred..." },
-      { name: "supportingDoc", label: "Completed Information sheet or Old ID", type: "file", required: true }
-    ]
-  },
-  {
-    id: "marriage-registration",
-    name: "Marriage Registration Services",
-    category: "registration_services",
-    priceEstimate: "₦35,000 - ₦75,000",
-    duration: "2 - 3 Weeks",
-    description: "Assistance with federal marriage registry bookings, documentation submission, statutory wedding preparation, and securing certified marriage registration certificates.",
-    formFields: [
-      { name: "partnerAName", label: "Partner A Legal Full Name", type: "text", required: true, placeholder: "First Name, Middle Name, Last Name" },
-      { name: "partnerBName", label: "Partner B Legal Full Name", type: "text", required: true, placeholder: "First Name, Middle Name, Last Name" },
-      { name: "registryLocation", label: "Preferred Registry Location / State", type: "text", required: true, placeholder: "e.g., Ikoyi Registry, Lagos" },
-      { name: "proposedDate", label: "Proposed Wedding Date", type: "date", required: true },
-      { name: "partnerAPassport", label: "Partner A Passport Photograph", type: "file", required: true },
-      { name: "partnerBPassport", label: "Partner B Passport Photograph", type: "file", required: true },
-      { name: "birthCertsOrNin", label: "Birth Certificates or NIN Slips (Combined PDF or ZIP)", type: "file", required: true }
+      { name: "incidentType", label: "Type of Incident Report", type: "select", required: true, options: ["Loss of SIM card & ID", "Loss of Vehicle Logbook Documents", "Official Police Character Certificate"] },
+      { name: "incidentDetails", label: "Incident narrative (date, place, items)", type: "textarea", required: true, placeholder: "Include dates, locations, serial numbers if any..." },
+      { name: "idDoc", label: "Old ID or proof of property ownership", type: "file", required: true }
     ]
   },
 
-  // BUSINESS SERVICES
+  // 4. JAMB SERVICES
   {
-    id: "cac-business",
-    name: "CAC Business Name Registration",
-    category: "registration_services",
-    priceEstimate: "₦18,000 - ₦24,000",
-    duration: "4 - 7 Business Days",
-    description: "Registering business names with the Corporate Affairs Commission. Includes name search, filing, and certificate delivery.",
-    formFields: [
-      { name: "ownerName", label: "Business Owner/Proprietor Name", type: "text", required: true },
-      { name: "proposedName1", label: "Proposed Business Name (Option 1)", type: "text", required: true, placeholder: "Preferred Business Name" },
-      { name: "proposedName2", label: "Proposed Business Name (Option 2)", type: "text", required: true, placeholder: "Alternative Name" },
-      { name: "businessNature", label: "Nature/Sector of Business", type: "textarea", required: true, placeholder: "e.g. Agricultural farming, General merchandise, Fashion design..." },
-      { name: "ownerId", label: "Signature & Owner NIN/ID Card", type: "file", required: true }
-    ]
-  },
-  {
-    id: "tin-registration",
-    name: "TIN Registration (Tax ID)",
-    category: "registration_services",
-    priceEstimate: "₦4,000 - ₦8,000",
-    duration: "24 - 48 Hours",
-    description: "Instant creation and activation of Joint Tax Board (JTB) or Federal Inland Revenue Service (FIRS) Tax Identification Number for individuals & entities.",
-    formFields: [
-      { name: "entityName", label: "Entity/Individual Legal Name", type: "text", required: true },
-      { name: "taxType", label: "TIN Classification", type: "select", required: true, options: ["Individual TIN (Self-Employed / Worker)", "Enterprise/Non-Limited Corporate TIN", "Limited Liability (FIRS) Corporate TIN"] },
-      { name: "associatedNin", label: "NIN Number (For Individual TIN)", type: "text", required: true, placeholder: "11-digit NIN Number" },
-      { name: "utilityBill", label: "Address Utility Bill (Nepa bill/Water)", type: "file", required: true }
-    ]
-  },
-  {
-    id: "scuml-registration",
-    name: "SCUML Registration & Licensing",
-    category: "registration_services",
-    priceEstimate: "₦25,000 - ₦45,000",
-    duration: "10 - 14 Business Days",
-    description: "Special Anti-Money Laundering (SCUML) certification from the EFCC. Required constraint for luxury business bank accounts in Nigeria.",
-    formFields: [
-      { name: "businessName", label: "CAC Certified Business Name", type: "text", required: true },
-      { name: "rcNumber", label: "BN / RC Registration Number", type: "text", required: true, placeholder: "BN-1234 or RC-12345" },
-      { name: "scumlNature", label: "Business Sector Code", type: "select", required: true, options: ["Real Estate / Property Management", "Hotels / Hospitality", "Consulting firm", "Audit & Accounting", "Luxury Auto Selling", "Jewelry, Dealers in Gold", "Casinos & Trust Services"] },
-      { name: "cacDocs", label: "CAC Certificate & Status Report", type: "file", required: true }
-    ]
-  },
-
-  // TRAVEL & IMMIGRATION
-  {
-    id: "intl-passport",
-    name: "International Passport Processing",
-    category: "registration_services",
-    priceEstimate: "₦65,000 - ₦95,000",
-    duration: "2 - 6 Weeks (Biometrics)",
-    description: "Step-by-step facilitation for 32-Page/64-Page Standard Passport, renewals, correction of data, or fast-track booking.",
-    formFields: [
-      { name: "fullName", label: "Full Legal Name on Passport", type: "text", required: true },
-      { name: "passportOps", label: "Application Type", type: "select", required: true, options: ["Fresh Issue (5 Years, 32 Pages)", "Fresh Issue (10 Years, 64 Pages)", "Renewal (Expiring Passport)", "Data Modification (Name/DOB)", "Lost Passport / Replace Document"] },
-      { name: "stateOfOrigin", label: "State of Origin / Local Gov", type: "text", required: true },
-      { name: "oldPassport", label: "Expired Passport Page / NIN Slip", type: "file", required: true }
-    ]
-  },
-  {
-    id: "driver-licence",
-    name: "Driver's Licence Processing",
-    category: "registration_services",
-    priceEstimate: "₦26,000 - ₦38,000",
-    duration: "2 - 3 Weeks (Temp Slip in 48h)",
-    description: "Facilitation of 3-Year or 5-Year official Driver's License registration, physical exam bypass, biometric booking, & renewal tracking.",
-    formFields: [
-      { name: "fullName", label: "Driver Name", type: "text", required: true },
-      { name: "dob", label: "Date of Birth", type: "date", required: true },
-      { name: "classLic", label: "License Category Type", type: "select", required: true, options: ["Category A (Motorcycles)", "Category B (Private Saloon cars)", "Category C (Commercial buses/vehicles)", "Category E (Heavy Trucks)"] },
-      { name: "durationLic", label: "Licence Validity Length", type: "select", required: true, options: ["3-Year Validity", "5-Year Validity"] },
-      { name: "idAttachment", label: "Active NIN Slip or Expired Licence", type: "file", required: true }
-    ]
-  },
-
-  // PRINTING & DOCUMENTATION
-  {
-    id: "printing-services",
-    name: "Mass Printing & Scanning Desk",
-    category: "documentation_service",
-    priceEstimate: "₦50 - ₦300 / Page",
-    duration: "Same day dispatch",
-    description: "High speed, premium printing, thesis binding, scan-to-PDF desk, laminated certificates, and direct parcel shipping.",
-    formFields: [
-      { name: "clientName", label: "Contact Name", type: "text", required: true },
-      { name: "printPrefs", label: "Printing Format Preferences", type: "textarea", required: true, placeholder: "e.g. 50 Pages Double-Sided, Color Spiral Bind, A4, Gloss paper..." },
-      { name: "deliveryAddress", label: "Delivery Address (Or Jumia Hub/GIG)", type: "text", required: true },
-      { name: "sourceFile", label: "Document PDF or Docx for Printing", type: "file", required: true }
-    ]
-  },
-  {
-    id: "cv-writing",
-    name: "CV & Cover Letter Writing",
-    category: "documentation_service",
-    priceEstimate: "₦4,000 - ₦10,000",
-    duration: "24 - 48 Hours",
-    description: "ATS-optimized Premium CV, Cover letter, and optimized LinkedIn setup written by global recruiting professionals.",
+    id: "jamb-epin",
+    name: "JAMB ePIN",
+    category: "jamb_services",
+    priceEstimate: "₦6,700",
+    duration: "Instant (Within 5 Mins)",
+    description: "Purchase official JAMB UTME electronic registration PIN delivered directly via SMS/Email.",
     formFields: [
       { name: "fullName", label: "Full Name", type: "text", required: true },
-      { name: "targetJob", label: "Target Industry / Desired Role", type: "text", required: true, placeholder: "e.g., Senior Marketer, Cloud Engineer, Accountant" },
-      { name: "experiences", label: "Provide brief current roles and skills", type: "textarea", required: true, placeholder: "List your duties, dates worked, or previous degrees" },
-      { name: "oldCv", label: "Your Old CV / Educational History", type: "file", required: false }
+      { name: "profileCode", label: "JAMB Profile Code (10-digits)", type: "text", required: true, placeholder: "Enter code sent to 55019" },
+      { name: "phoneNumber", label: "Linked Phone Number", type: "text", required: true, placeholder: "08012345678" },
+      { name: "emailAddress", label: "Email Address", type: "text", required: true, placeholder: "you@example.com" },
+      { name: "oLevel", label: "O'Level Result Sheet (WAEC/NECO)", type: "file", required: true }
     ]
   },
-
-  // VEHICLE SERVICES
   {
-    id: "vehicle-reg",
-    name: "Vehicle Registration & Renewal",
-    category: "registration_services",
-    priceEstimate: "₦45,000 - ₦65,000",
+    id: "de-epin",
+    name: "Direct Entry ePIN",
+    category: "jamb_services",
+    priceEstimate: "₦10,000",
+    duration: "Instant (Within 5 Mins)",
+    description: "Purchase official JAMB Direct Entry electronic profile PIN for ND/HND/BSc holders.",
+    formFields: [
+      { name: "fullName", label: "Full Name", type: "text", required: true },
+      { name: "profileCode", label: "JAMB Profile Code (10-digits)", type: "text", required: true },
+      { name: "phoneNumber", label: "Phone Number", type: "text", required: true },
+      { name: "emailAddress", label: "Email Address", type: "text", required: true },
+      { name: "higherDegree", label: "HND/ND/Degree Statement of result / Transcript", type: "file", required: true }
+    ]
+  },
+  {
+    id: "jamb-original-result",
+    name: "JAMB Original Result Printing",
+    category: "jamb_services",
+    priceEstimate: "₦4,500",
+    duration: "1 Business Day",
+    description: "Obtain your official color PDF JAMB result slip with passport photograph attached for screening.",
+    formFields: [
+      { name: "fullName", label: "Full Name", type: "text", required: true },
+      { name: "jambRegNo", label: "JAMB Registration Number", type: "text", required: true, placeholder: "e.g. 26532451JA" },
+      { name: "phoneNumber", label: "Phone Number", type: "text", required: true, placeholder: "080..." },
+      { name: "emailAddress", label: "Email Address", type: "text", required: true, placeholder: "you@example.com" }
+    ]
+  },
+  {
+    id: "jamb-admission-letter",
+    name: "JAMB Admission Letter Printing",
+    category: "jamb_services",
+    priceEstimate: "₦4,500",
+    duration: "1 Business Day",
+    description: "Retrieve and print the statutory JAMB institution Admission Letter required by academic registries.",
+    formFields: [
+      { name: "fullName", label: "Full Name", type: "text", required: true },
+      { name: "jambRegNo", label: "JAMB Registration Number", type: "text", required: true, placeholder: "e.g. 26532451JA" },
+      { name: "examYear", label: "Examination Year", type: "select", required: true, options: ["2026", "2025", "2024", "2023", "2022", "2021", "2020"] },
+      { name: "phoneNumber", label: "Phone Number", type: "text", required: true },
+      { name: "email", label: "Email Address", type: "text", required: true }
+    ]
+  },
+  {
+    id: "jamb-regularization",
+    name: "JAMB Regularization",
+    category: "jamb_services",
+    priceEstimate: "₦12,000",
     duration: "3 - 5 Business Days",
-    description: "Full vehicle registration, customized license plates, change of ownership, roadworthiness certificates, and auto insurance cards.",
+    description: "Submit a mapping request to regularize admissions not recorded on the central JAMB CAPS registry.",
     formFields: [
-      { name: "ownerName", label: "Vehicle Owner Name", type: "text", required: true },
-      { name: "vehicleSpecs", label: "Vehicle Details", type: "textarea", required: true, placeholder: "Car Maker, Model, Color, Year of Manufacture, Chassis, and Engine Number" },
-      { name: "regType", label: "Registration Objective", type: "select", required: true, options: ["Fresh Car plate (New Import)", "Ownership Change Transfer", "Annual License & Road-Worthiness Renewal", "Third Party Auto Insurance Certificate"] },
-      { name: "customCard", label: "Customized Plate Requested?", type: "text", required: false, placeholder: "e.g. KGS-017A (Optional)" },
-      { name: "importDocs", label: "Custom Papers / Proof of Purchase", type: "file", required: true }
+      { name: "fullName", label: "Candidate's Full Name", type: "text", required: true },
+      { name: "jambRegNo", label: "Old JAMB Number (if any)", type: "text", required: false },
+      { name: "qualification", label: "Entry Qualification", type: "select", required: true, options: ["ND (National Diploma)", "NCE Certificate", "HND Diploma", "IJMB/JUPEB Certificate"] },
+      { name: "institution", label: "Institution Attended", type: "text", required: true, placeholder: "e.g. University of Ibadan" },
+      { name: "gradYear", label: "Year of Graduation", type: "number", required: true, placeholder: "2500" },
+      { name: "supportingDoc", label: "Admission Letter or Statement of Results", type: "file", required: true }
+    ]
+  },
+  {
+    id: "jamb-course-change",
+    name: "JAMB Change of Course/Institution",
+    category: "jamb_services",
+    priceEstimate: "₦6,500",
+    duration: "1 - 2 Business Days",
+    description: "Alter choice of program or primary state universities selected during initial registration checks.",
+    formFields: [
+      { name: "fullName", label: "Full Name", type: "text", required: true },
+      { name: "jambRegNo", label: "JAMB Registration Number", type: "text", required: true },
+      { name: "courseChoice", label: "Alternative Course Choice", type: "text", required: true },
+      { name: "institutionChoice", label: "Alternative Institution Choice", type: "text", required: true },
+      { name: "oLevelResult", label: "O'Level Result (WAEC/NECO)", type: "file", required: true }
     ]
   },
 
-  // UTILITY SERVICES
+  // 5. EXAM REGISTRATION SERVICES
   {
-    id: "airtime-data",
-    name: "Airtime & Data Wholesale bundles",
-    category: "exam_pin_services",
-    priceEstimate: "₦100 - ₦50,000",
-    duration: "Instant (1 - 2 mins)",
-    description: "Get discount bundles of MTN, Airtel, Glo and 9mobile VTU airtime, SME data plans, and electricity meter payments.",
+    id: "waec-registration",
+    name: "WAEC Registration",
+    category: "exam_registration_services",
+    priceEstimate: "₦27,000",
+    duration: "2 - 4 Business Days",
+    description: "Submit candidate registry profile for school or external WAEC (West African Senior School Certificate) examinations.",
     formFields: [
-      { name: "phoneNo", label: "Target Phone Number", type: "text", required: true, placeholder: "08034567890" },
-      { name: "network", label: "Telecom Network provider", type: "select", required: true, options: ["MTN Nigeria", "Airtel Nigeria", "Glo Mobile", "9mobile Network", "Ikeja Electric (IKEDC)", "Eko Electric (EKEDC)", "DSTV Premium"] },
-      { name: "bundlePlan", label: "Bundle description", type: "text", required: true, placeholder: "e.g. 10GB SME (30 Days Validity) / N5000 Airtime / Meter ID" }
+      { name: "studentName", label: "Student Legal Full Name", type: "text", required: true },
+      { name: "dateOfBirth", label: "Date of Birth", type: "date", required: true },
+      { name: "subjectsList", label: "List of 9 Selected Subjects", type: "textarea", required: true, placeholder: "e.g. English, Math, Physics, Chemistry, Biology, Civic..." },
+      { name: "passportPhoto", label: "Passport Photograph", type: "file", required: true }
     ]
   },
-
-  // EMPLOYMENT SERVICES
   {
-    id: "job-opp",
-    name: "Latest Job Opportunity Registration",
-    category: "educational_services",
-    priceEstimate: "₦2,000 - ₦5,000",
-    duration: "24 Hours",
-    description: "Account creation, profiles set up on LinkedIn, Indeed, Jobberman, and Upwork with automated job alert keywords set.",
+    id: "gce-registration",
+    name: "GCE (WAEC/NECO) Registration",
+    category: "exam_registration_services",
+    priceEstimate: "₦25,000",
+    duration: "2 - 4 Business Days",
+    description: "Private external candidate enrollments (General Certificate of Education) for November/December slots.",
     formFields: [
-      { name: "jobSeeker", label: "Full Name", type: "text", required: true },
-      { name: "qualification", label: "Highest Qualification attained", type: "select", required: true, options: ["O'Level (SSCE)", "ND / NCE", "HND / BSC Merit", "MSc / PhD", "Professional Certification only"] },
-      { name: "desiredSector", label: "Target Sector", type: "text", required: true, placeholder: "e.g., Banking, Tech, Teaching, Logistics" },
-      { name: "credentialFile", label: "CV or Degree Transcripts", type: "file", required: true }
+      { name: "candidateName", label: "Candidate Legal Name", type: "text", required: true },
+      { name: "stateChosen", label: "Preferred State & Examination Center", type: "text", required: true, placeholder: "e.g. Ikeja, Lagos" },
+      { name: "subjects", label: "Selected Examination Subjects Details", type: "textarea", required: true },
+      { name: "passport", label: "Passport Photograph", type: "file", required: true }
     ]
   },
-
-  // PROPERTY SERVICES
   {
-    id: "house-rent",
-    name: "Affordable Rent Listings Tracker",
-    category: "registration_services",
-    priceEstimate: "₦250,000 - ₦1,500,000 / Yr",
-    duration: "Weekly Matching alerts",
-    description: "Browse verified listings of apartments, duplexes, shops, and office spaces with direct access to physical agents.",
+    id: "neco-registration",
+    name: "NECO Registration",
+    category: "exam_registration_services",
+    priceEstimate: "₦22,000",
+    duration: "2 - 4 Business Days",
+    description: "Registrations for official NECO (National Examinations Council) Senior School Certifications.",
     formFields: [
-      { name: "tenantName", label: "Client Name", type: "text", required: true },
-      { name: "propertyType", label: "Target Space Needs", type: "select", required: true, options: ["Self-Contain / Studio Apartment", "2-Bedroom Flat", "3-Bedroom Custom Flat", "Physical Lock-up Shop", "Large Office Complex"] },
-      { name: "locationPreferred", label: "Preferred Locations (Nigeria)", type: "text", required: true, placeholder: "e.g. Lekki, Ikeja, Gbagada, Jabi, Gwarinpa, Port Harcourt..." },
-      { name: "annualBudget", label: "Maximum Budget Range Name (₦)", type: "text", required: true, placeholder: "e.g. 500,000 - 800,000" }
+      { name: "candidateName", label: "Candidate Name", type: "text", required: true },
+      { name: "dateOfBirth", label: "Date of Birth", type: "date", required: true },
+      { name: "examLocation", label: "Preferred State / Examination Centre LGA", type: "text", required: true },
+      { name: "subjectsRequired", label: "Selected Examination Subjects", type: "textarea", required: true },
+      { name: "passport", label: "Passport Photograph", type: "file", required: true }
     ]
   },
-
-  // GADGETS
   {
-    id: "gadgets-deal",
-    name: "Premium Vetted Gadgets Purchase",
-    category: "educational_services",
-    priceEstimate: "Negotiated (Varies)",
-    duration: "1 - 2 Days courier",
-    description: "Buy grade-A refurbished or new HP, Dell, Lenovos, iPhones, Samsungs, and custom chargers directly tested by MYSOLUTION HUB Tech Center.",
+    id: "nabteb-registration",
+    name: "NABTEB Registration",
+    category: "exam_registration_services",
+    priceEstimate: "₦20,000",
+    duration: "3 - 5 Business Days",
+    description: "National Business and Technical Examinations Board (NABTEB) candidate enrollments.",
     formFields: [
-      { name: "buyerName", label: "Full Name of Purchaser", type: "text", required: true },
-      { name: "gadgetTarget", label: "Device Brand & Specs Requested", type: "textarea", required: true, placeholder: "e.g., HP EliteBook 840 G5 Core i7 16GB RAM/512GB SSD, or iPhone 13 Pro Max 256GB" },
-      { name: "courierMethod", label: "Delivery Method", type: "select", required: true, options: ["Self-Pick up at MYSOLUTION Desk", "Home Courier (Lagos / Abuja / PH)", "Inter-state Park Delivery (GIG/Peace)"] }
+      { name: "candidateName", label: "Candidate Full Name", type: "text", required: true },
+      { name: "tradeCode", label: "Technical Trade Area / Interest Code", type: "select", required: true, options: ["Electrical Installation", "Mechanical Trade", "Computer Craft", "Business / Accountancy Trade"] },
+      { name: "subjects", label: "List of general and trade subjects chosen", type: "textarea", required: true },
+      { name: "passport", label: "Passport Photograph", type: "file", required: true }
+    ]
+  },
+  {
+    id: "jupeb-registration",
+    name: "JUPEB Registration",
+    category: "exam_registration_services",
+    priceEstimate: "₦180,000",
+    duration: "5 - 7 Business Days",
+    description: "Enrollment in Joint Universities Preliminary Examinations Board advanced level system.",
+    formFields: [
+      { name: "candidateName", label: "Candidate Legal Name", type: "text", required: true },
+      { name: "affiliateUni", label: "Preferred Affiliate University Center", type: "text", required: true, placeholder: "e.g. UNILAG center, UNIBEN center" },
+      { name: "subjectCombo", label: "Three advanced subjects combo (e.g. Physics, Chemistry, Mathematics)", type: "text", required: true },
+      { name: "oLevelResult", label: "O'Level Result Slip", type: "file", required: true },
+      { name: "passport", label: "Passport Photograph", type: "file", required: true }
+    ]
+  },
+  {
+    id: "ijmb-registration",
+    name: "IJMB Registration",
+    category: "exam_registration_services",
+    priceEstimate: "₦150,000",
+    duration: "5 - 7 Business Days",
+    description: "Enrollment in official Interim Joint Matriculation Board direct-entry university linkage system.",
+    formFields: [
+      { name: "candidateName", label: "Candidate Legal Name", type: "text", required: true },
+      { name: "centerLocation", label: "Preferred Examination Study Center (State)", type: "text", required: true, placeholder: "e.g. Ilorin Center, Kwara State" },
+      { name: "subjectCombo", label: "Three Advanced Subjects Combo Chosen", type: "text", required: true },
+      { name: "oLevelResult", label: "O'Level Result (WAEC/NECO/NABTEB)", type: "file", required: true },
+      { name: "passport", label: "Passport Photograph", type: "file", required: true }
     ]
   }
 ];
@@ -374,7 +564,7 @@ export const TESTIMONIALS = [
     role: "Lagos Business Owner & Lecturer",
     text: "MYSOLUTION HUB made registering my consultancy business with the CAC extremely easy. I didn't have to fill out complex government portals or query lists. In exactly six days, my digital certificates were ready. Highly professional!",
     service: "CAC Business Name Registration",
-    avatarColor: "bg-emerald-500",
+    avatarColor: "bg-emerald-550",
   },
   {
     id: "t2",
@@ -382,7 +572,7 @@ export const TESTIMONIALS = [
     role: "International Aspirant (UK MSc Student)",
     text: "I was struggling with getting my transcript and birth records processed. The document desk processed my NPC Birth Certificate attestation and uploaded it for my admission. Their service is truly modern, and they responded on WhatsApp immediately.",
     service: "NPC Birth Certificate",
-    avatarColor: "bg-indigo-500",
+    avatarColor: "bg-indigo-550",
   },
   {
     id: "t3",
@@ -390,7 +580,7 @@ export const TESTIMONIALS = [
     role: "Consultant / Job Applicant",
     text: "Their professional CV writing service is top notch. CV was rewritten into a stunning, clean ATS-compliant template. I started getting direct interviews from recruiters within 10 days of applying with the new CV. Super grateful!",
     service: "CV & Cover Letter Writing",
-    avatarColor: "bg-teal-500",
+    avatarColor: "bg-teal-550",
   },
   {
     id: "t4",
@@ -398,7 +588,7 @@ export const TESTIMONIALS = [
     role: "Federal Government NYSC Corps Member",
     text: "Fast service, incredibly reliable support, and very affordable charges. I always use them for examinations pins purchase, NIN slip modification updates, and my regular airtime VTU/data bundle subscriptions. Highly recommended!",
     service: "NIN Modification Profile",
-    avatarColor: "bg-amber-500",
+    avatarColor: "bg-amber-550",
   }
 ];
 
@@ -443,12 +633,12 @@ export const STEPS = [
   },
   {
     number: "03",
-    title: "Receive WhatsApp Dispatch",
-    description: "Click to generate a secure order file. Connect directly to our WhatsApp Desk for swift processing.",
+    title: "Fund Wallet & Pay Cash",
+    description: "Top up your wallet instantaneously via safe bank transfer or card, and complete checkout silently.",
   },
   {
     number: "04",
     title: "Instant Live Tracking",
-    description: "Real-time verification states let you watch your tasks transition from 'Received' to 'Completed' safely.",
+    description: "Real-time verification states let you watch your tasks transition from 'Pending' to 'Completed' safely.",
   }
 ];

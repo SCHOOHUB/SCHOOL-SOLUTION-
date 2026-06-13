@@ -27,8 +27,10 @@ export interface VerificationOrder {
   submittedAt: string;
   formData: Record<string, string>;
   files: { name: string; size: string; type: string; dataUrl?: string }[];
-  status: "Received" | "Pending Verification" | "Processing" | "Completed";
+  status: "Pending" | "Under Review" | "Processing" | "Completed" | "Rejected";
   trackingId: string;
+  completedDocName?: string;
+  completedDocUrl?: string; // Data URL or text representation of downloaded PDF
 }
 
 export interface Category {
