@@ -37,3 +37,20 @@ export interface Category {
   description: string;
   iconName: string;
 }
+
+export interface WalletTransaction {
+  id: string;
+  type: "credit" | "debit";
+  amount: number;
+  description: string;
+  date: string;
+}
+
+export interface UserAccount {
+  id: string;
+  fullName: string;
+  email: string;
+  phoneNumber: string;
+  walletBalance: number;
+  transactions: WalletTransaction[];
+}
